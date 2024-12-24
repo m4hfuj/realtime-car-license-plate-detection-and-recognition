@@ -11,9 +11,6 @@
 ---
 
 
-![gif](assets/project-alpr.gif)
-
-
 ## 🗺️ Overview
 
 This project is designed for automatic Bangla License Plate Recognition (ALPR) using deep learning models. It includes functionality for detecting license plates in a video, recognizing their contents, and displaying relevant information on the video frames. The system is built using Python with libraries like YOLO, OpenCV, and Supervision.
@@ -24,6 +21,8 @@ The ALPR system performs the following tasks:
 - Recognizes the characters on the license plates using Character Recognition YOLO model.
 - Annotates the video with detected license plates and confidence scores.
 - Outputs the processed video with license plate annotations.
+
+![gif](assets/project-alpr.gif)
 
 
 ## 🚀 Key Features:
