@@ -1,0 +1,9 @@
+images/
+input_videos/
+outputs/
+
+stubs/
+
+modules/__pycache__/
+
+code_for_show.zip
