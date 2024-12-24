@@ -16,13 +16,12 @@
 
 ## 🗺️ Overview
 
-This project is designed for automatic Bangla License Plate Recognition (ALPR) using deep learning models. It includes functionality for detecting vehicles in a video, recognizing their license plates, and displaying relevant information on the video frames. The system is built using Python with libraries like YOLO, OpenCV, and Supervision.
+This project is designed for automatic Bangla License Plate Recognition (ALPR) using deep learning models. It includes functionality for detecting license plates in a video, recognizing their contents, and displaying relevant information on the video frames. The system is built using Python with libraries like YOLO, OpenCV, and Supervision.
 
 The ALPR system performs the following tasks:
 
-- Detects vehicles in video frames.
-- Extracts license plates from vehicles.
-- Recognizes the characters on the license plates using Optical Character Recognition (OCR).
+- Detects license plates in video frames with YOLO model.
+- Recognizes the characters on the license plates using Character Recognition YOLO model.
 - Annotates the video with detected license plates and confidence scores.
 - Outputs the processed video with license plate annotations.
 
@@ -30,7 +29,7 @@ The ALPR system performs the following tasks:
 ## 🚀 Key Features:
 
 ### **1. License Plate Detection Model**
-- **YOLO-based Localization**: Uses a pre-trained YOLO model to detect and localize license plates in video frames with bounding boxes.
+- **YOLO-based Localization**: Uses a pre-trained **YOLO-based model** to detect and localize license plates in video frames with bounding boxes.
 - **Real-Time Performance**: Optimized for fast video processing, enabling quick detection in large or high-traffic videos.
 - **Separation of Tasks**: Focuses on license plate localization while leaving character recognition as separate tasks.
 
@@ -100,7 +99,7 @@ The ALPR system performs the following tasks:
 Dependencies:
 
 - `opencv-python`: For video processing and displaying the output.
-- `ultralytics`: For running YOLO models for vehicle and license plate detection.
+- `ultralytics`: For running YOLO models for license plate detection and character content recognition.
 - `supervision`: A tracking library for managing object detection.
 - `pandas`: For data handling and saving detection results in CSV format.
 - `tqdm`: For showing progress bars during video writing.
@@ -125,7 +124,7 @@ python main.py
 The script will:
 
 - Load the input video from input_videos/output_video.avi.
-- Detect vehicles and license plates using YOLO and OCR models.
+- Detect license plates and characters using seperate YOLO models.
 - Annotate the video with bounding boxes and license plate text.
 - Save the annotated video to output/test_video2.avi.
 - Save the detection results to output/detection_results.csv.
