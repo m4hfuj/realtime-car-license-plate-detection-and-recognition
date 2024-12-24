@@ -29,33 +29,28 @@ The ALPR system performs the following tasks:
 
 ## 🚀 Key Features:
 
-### **1. Vehicle Detection**
+### **1. License Plate Detection Model**
+- **YOLO-based Localization**: Uses a pre-trained YOLO model to detect and localize license plates in video frames with bounding boxes.
+- **Real-Time Performance**: Optimized for fast video processing, enabling quick detection in large or high-traffic videos.
+- **Separation of Tasks**: Focuses on license plate localization while leaving character recognition as separate tasks.
 
-- **YOLOv8 Object Detection**: The system leverages the powerful **YOLOv8** (You Only Look Once) model, which is designed for fast and accurate object detection in images and videos.
-- **Real-time Performance**: The vehicle detection process is optimized for real-time performance, allowing for efficient analysis of video frames, even in large video files.
-- **Bounding Boxes**: Detected vehicles are highlighted with bounding boxes, allowing easy identification of each vehicle in the video frames.
-- **Multiple Vehicle Detection**: The system can detect and track multiple vehicles simultaneously in each frame, making it suitable for crowded environments such as highways or city streets.
-
-### **2. License Plate Recognition (LPR)**
-
-- **Bangla License Plate Recognition**: This project focuses on recognizing **Bangla characters** on vehicle license plates. The system is equipped with a **pre-trained deep learning model** specifically designed for recognizing Bangla characters.
-- **OCR (Optical Character Recognition)**: After detecting the license plate region, the **OCR model** extracts individual characters from the license plate using high-accuracy recognition algorithms. It is capable of detecting characters even under challenging conditions like occlusions or low light.
-- **Accuracy and Precision**: The system has been trained on a dataset of Bangla license plates, ensuring accurate recognition of characters with high confidence. Each detected plate’s text is returned with an associated confidence score indicating the reliability of the recognition.
-- **Character-Level Recognition**: Each character is identified individually, ensuring that even complex license plates with various combinations of letters and numbers are accurately decoded.
+### **2. Character Recognition**
+- **Bangla Character Recognition (OCR)**: After detecting the plate, another **YOLO-based model** recognizes characters such as district names, letters, and numbers on the license plate.
+- **OCR for Bangla License Plates**: The character recognition model is specialized for Bangla license plates, extracting district names (e.g., **Dhaka**, **Chattogram**) and numerical characters, as well as the alphabetic letters (e.g., **Cha**, **Ba**, **Da**). The model efficiently decodes the characters even under occlusions or varying light conditions.
+- **Efficient Recognition**: Specialized for Bangla plates, even under occlusions or poor lighting conditions.
+- **Confidence Scores**: Each detected character has a confidence score to indicate recognition accuracy.
+- **Localized Detection**: Characters are detected individually with bounding boxes to handle partial obstructions or angled plates.
 
 ### **3. Video Annotation**
-
-- **Bounding Boxes and Labels**: Once a vehicle and its license plate are detected, the system annotates the video frames by drawing bounding boxes around the vehicles and their corresponding license plates.
-- **License Plate Text Annotation**: The detected license plate’s text (Bangla characters) is displayed directly on the video frame, with a confidence score showing how certain the model is about its recognition.
-- **Real-Time Display**: The video frames are displayed with annotations in real time, giving you a live view of the detected vehicles and recognized license plates.
-- **Visual Feedback**: The system draws colored rectangles around detected plates and adds text annotations that display the detected license plate number along with the confidence score for each detection.
+- **Bounding Boxes & Labels**: Annotates the video with bounding boxes around detected vehicles and license plates.
+- **Text & Confidence**: Displays recognized license plate text (Bangla characters) with confidence scores directly on the video.
+- **Real-Time Display**: Provides live annotations during video playback with visual feedback for each detected plate.
 
 ### **4. CSV Output**
-
-- **Detailed Detection Results**: The system generates a CSV file (`detection_results.csv`) that stores the detected license plate text and their associated confidence scores for each frame. This provides an easy way to analyze detection results post-processing.
-- **Track IDs and Confidence Scores**: Each row in the CSV contains the track ID of the vehicle, the detected license plate text, and the confidence score for that particular license plate detection.
-- **Data for Further Analysis**: The CSV format makes it easy to process, visualize, and analyze the data further, including for statistics, vehicle pattern analysis, or integration with other systems.
-- **Example CSV Output**:
+- **Detection Results**: Generates a CSV (`detection_results.csv`) containing detected license plate text and confidence scores.
+- **Track IDs**: Includes vehicle track IDs, license plate text, and confidence scores for each frame.
+- **Data Analysis**: CSV format is ready for further analysis, visualization, or integration with other systems.
+- **Example CSV**:
 
     ```
     track_ids,detections
@@ -63,16 +58,13 @@ The ALPR system performs the following tasks:
     2,‘রাজশাহী চ ৭০-৪৬৪১’
     3,‘চট্টগ্রাম ব ৬৪-৮৪৮৬’
     ```
+
 ### **5. Video Output**
-- **Annotated Output Video**: The processed video, with all detected vehicles and their license plates annotated, is saved in the output directory (e.g., `test_video2.avi`).
-- **Real-time Processing**: The system processes the input video, annotates it with detected vehicles and their license plate texts, and generates a new video output, all in one step.
-- **Track Vehicle Movement**: The output video includes tracking of vehicles across multiple frames. As the system detects a vehicle, it assigns it a unique track ID that is used to track that vehicle across frames.
-- **Customizable Output**: The final output video can be adjusted to include different annotation types (e.g., bounding boxes, text overlays, confidence scores). The video format is customizable, and you can adjust parameters like **frame rate**, **resolution**, and **codec**.
-- **Example Output**: The annotated output video shows each vehicle’s bounding box and its corresponding license plate text with confidence scores, providing a complete visual report of the detections.
-
----
-
-
+- **Annotated Video**: Outputs a video with bounding boxes, license plate text, and confidence scores annotated.
+- **Real-Time Processing**: Processes and annotates the video in real-time.
+- **Vehicle Tracking**: Tracks vehicles across frames using unique track IDs.
+- **Customizable Output**: Allows customization of output video parameters (e.g., frame rate, resolution).
+- **Example Output**: Shows each vehicle’s bounding box and plate text with confidence scores in the final annotated video.
 
 
 ## 📂 File Structure
