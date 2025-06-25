@@ -1,4 +1,4 @@
-# 🚍 Automatic Bangla License Plate Recognition (ALPR)
+# 🚍 Realtime Car License Plate Detection and Recognition
 
 
 ![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white)
